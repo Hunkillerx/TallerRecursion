@@ -11,7 +11,6 @@
 package ean.programacionavanzada.recursion
 
 import ean.collections.IList
-import ean.collections.LinkedList
 
 /**
  * Halla el factorial del número entero n
@@ -19,8 +18,8 @@ import ean.collections.LinkedList
  */
 fun factorial(n: Int): Int {
     return when (n) {
-        0    -> 1
-        else -> n * factorial(n-1)
+        0 -> 1
+        else -> n * factorial(n - 1)
     }
 }
 
@@ -28,35 +27,35 @@ fun factorial(n: Int): Int {
  * Halla el n-ésimo término de la serie de fibonacci
  */
 fun fibonacci(n: Int): Int =
-    when (n) {
-        0    ->  1
-        1    ->  1
-        else -> fibonacci(n-1) + fibonacci(n-2)
-    }
+        when (n) {
+            0 -> 1
+            1 -> 1
+            else -> fibonacci(n - 1) + fibonacci(n - 2)
+        }
 
 /**
  * Halla el valor de a^b
  */
 fun elevar(a: Int, b: Int): Int =
-    TODO("Completar")
+        TODO("Completar")
 
 /**
  * Halla la suma de los cuadrados de los números de 1 hasta n
  */
 fun sumaCuadrados(n: Int): Int =
-    TODO("Completar")
+        TODO("Completar")
 
 /**
  * Permite saber la cantidad de digitos que posee un número entero positivo n
  */
 fun contarDigitos(n: Int): Int =
-    TODO("Completar")
+        TODO("Completar")
 
 /**
  * Permite hallar la suma de los dígitos de un número entero positivo n
  */
 fun sumarDigitos(n: Int): Int =
-    TODO("Completar")
+        TODO("Completar")
 
 /**
  * Un número entero positivo en múltiplo de 3 si:
@@ -65,7 +64,7 @@ fun sumarDigitos(n: Int): Int =
  *  - Si no es de un digito sumarlos y mirar si ese digito es multiplo de 3
  */
 fun esMultiploDe3(n: Int): Boolean {
-    if(contarDigitos(n) == 1){
+    if (contarDigitos(n) == 1) {
 
     }
 }
@@ -73,9 +72,12 @@ fun esMultiploDe3(n: Int): Boolean {
 /**
  * Cuenta el número de dígitos pares que tiene un número entero positivo >= 1
  */
-fun cantidadDigitosPares(n: Int): Int {
-    TODO("Completar")
-}
+fun cantidadDigitosPares(n: Int): Int =
+        when (n) {
+            in 0..9 -> if (n % 2 == 0) 1 else 0
+            else -> cantidadDigitosPares(n / 10) + if (n % 10 % 2 == 0) 1 else 0
+        }
+
 
 /**
  * Determina si el número dado es binario o no.
@@ -106,11 +108,18 @@ fun digitoMasGrande(n: Int): Int {
  * Ejemplo: digitos(351804) == [3, 5, 1, 8, 0, 4]
  */
 fun digitos(n: Int): IList<Int> {
-    TODO("Completar")
+    if (n in 0..9) {
+        return ean.collections.List(n
+    } else {
+        val r = n / 10
+        val u = n % 10
+        val y = digitos(r)
+        y.add(u)
+        return y
+    }
 }
 
-/**
- * Dado un número entero positivo >= 0, retorna una lista con la representación binaria
+/*Dado un número entero positivo >= 0, retorna una lista con la representación binaria
  * del número dado.
  * Ejemplo: convertirDecimalBinario(231) = List(1, 1, 0, 0, 1, 1, 1, 1, 1, 1)
  */
