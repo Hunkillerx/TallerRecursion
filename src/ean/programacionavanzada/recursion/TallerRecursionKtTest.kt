@@ -23,4 +23,10 @@ internal class TallerRecursionKtTest {
         }
     }
 
+    @Test
+    fun pruebaSumarPares(){
+        val lista: IList<Int> = List(1,8,7,4,2)
+        assertequals(14,lista)
+    }
+
 }

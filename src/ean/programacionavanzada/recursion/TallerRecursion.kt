@@ -133,15 +133,49 @@ fun convertirDecimalBinario(n: Int): IList<Int> {
  * Ejemplo: sumarParesLista([40, 21, 8, 31, 6]) == 54
  */
 fun sumarParesList(lista: IList<Int>): Int {
-    TODO("Completar!")
+    if(lista.isEmpty){
+        return 0
+    }
+    else{
+        val resto = lista.tail()
+        val prim = lista.first
+
+        var sumaResto = sumarParesList(resto)
+        if(prim % 2 == 0){
+            sumaResto = prim
+        }
+        return sumaResto
+    }
 }
+
+fun mayorLista(IList<Int>):Int =
+        when{
+            lista.size == 1 -> lista[0]
+            else -> max(lista.first, mayorLista(lista.tail()))
+        }
 
 /**
  * Traduce los diversos dígitos de la lista a un número entero
  * Ejemplo: convertirListaDigitosNumero([3, 4, 1, 7, 9]) == 34179
  */
 fun convertirListaDigitosNumero(digitos: IList<Int>): Int {
-    TODO("Completar!")
+    TODO()
+}
+
+fun multiplosDeSeis(lista: IList<Int>):IList<Int>{
+    if (lista.isEmpty){
+        return List<Int>()
+    }
+    else{
+        val prim = lista.get(0)
+        val resto = lista.tail()
+        val resultado = multiplosDeSeis(resto)
+
+        if(prim % 6 == 0){
+            resultado.addtoHead(prim)
+        }
+        return resultado
+    }
 }
 
 /**
